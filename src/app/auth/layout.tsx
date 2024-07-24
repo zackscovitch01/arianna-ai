@@ -26,9 +26,8 @@ const Layout = async ({ children }: Props) => {
           Hi, I'm your AI powered sales assistant, Arianna!
         </h2>
         <p className="text-iridium md:text-sm mb-10">
-          Arianna is capable of capturing lead information without a form...{""}
-          <br />
-          something never done before!
+          Arianna is capable of capturing lead information without a form saving
+          you time and increasing your conversion rate.
         </p>
         <Image
           src="/images/app-ui.png"

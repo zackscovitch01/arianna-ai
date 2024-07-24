@@ -7,7 +7,7 @@ type Props = {};
 const HighLightBar = (props: Props) => {
   const { currentStep } = useAuthContextHook();
   return (
-    <div className="grid grid-cols-3 gap-3 mt-14">
+    <div className="grid grid-cols-3 gap-3 mt-8">
       <div
         className={cn(
           "rounded-full h-2 col-span-1",

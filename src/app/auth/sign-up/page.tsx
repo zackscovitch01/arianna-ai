@@ -2,8 +2,6 @@ import ButtonHandler from "@/components/forms/sign-up/button-handlers";
 import SignUpFormProvider from "@/components/forms/sign-up/form-provider";
 import HighLightBar from "@/components/forms/sign-up/highlight-bar";
 import RegistrationFormStep from "@/components/forms/sign-up/registration-step";
-import { AuthContextProvider } from "@/context/use-auth-context";
-import { FormProvider } from "react-hook-form";
 
 type Props = {};
 const SignUp = (props: Props) => {
