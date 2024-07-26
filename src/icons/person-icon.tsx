@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const PersonIcon = (props: Props) => {
   return (
@@ -19,8 +19,8 @@ const PersonIcon = (props: Props) => {
         stroke-linejoin="round"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M11.9999 10.0001C10.7131 10.0001 9.66992 8.95687 9.66992 7.67004C9.66992 6.38322 10.7131 5.34009 11.9999 5.34009C13.2868 5.34009 14.33 6.38322 14.33 7.67004C14.33 8.95687 13.2868 10.0001 11.9999 10.0001Z"
         stroke="#636363"
         stroke-width="1.5"
@@ -35,7 +35,7 @@ const PersonIcon = (props: Props) => {
         stroke-linejoin="round"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default PersonIcon
+export default PersonIcon;
