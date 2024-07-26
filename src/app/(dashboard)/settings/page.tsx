@@ -1,5 +1,6 @@
 import InfoBar from "@/components/infobar";
 import BillingSetting from "@/components/settings/billing-settings";
+import DarkModeToggle from "@/components/settings/dark-mode";
 import { client } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs";
 
@@ -10,6 +11,7 @@ const page = (props: Props) => {
       <InfoBar />
       <div className="overflow-y-auto w-full chat-window flex-1 h-0 flex flex-col gap-10">
         <BillingSetting />
+        <DarkModeToggle />
       </div>
     </>
   );
