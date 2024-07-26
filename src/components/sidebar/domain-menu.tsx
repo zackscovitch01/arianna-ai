@@ -33,7 +33,7 @@ const DomainMenu = ({ domains, min }: Props) => {
           description="Add your domain address to integrate your chatbot"
           title="Add your business domain"
           onOpen={
-            <div className="cursor-pointer text-gray-500 rounded-full border-2">
+            <div className="cursor-pointer text-gray-500 dark:text-white rounded-full border-2 dark:border-white">
               <Plus />
             </div>
           }
@@ -64,14 +64,14 @@ const DomainMenu = ({ domains, min }: Props) => {
           </Loader>
         </AppDrawer>
       </div>
-      <div className="flex flex-col gap-1 text-ironside font-medium">
+      <div className="flex flex-col gap-1 text-gray-500 font-medium">
         {domains &&
           domains.map((domain) => (
             <Link
               href={`/settings/${domain.name.split(".")[0]}`}
               key={domain.id}
               className={cn(
-                "flex gap-3 items-center sm:justify-normal hover:bg-white rounded-full transition duration-100 ease-in-out cursor-pointer ",
+                "flex gap-3 items-center sm:justify-normal hover:bg-white rounded-full transition duration-100 ease-in-out cursor-pointer",
                 !min ? "p-2" : "py-2 justify-center",
                 domain.name.split(".")[0] == isDomain && "bg-white"
               )}

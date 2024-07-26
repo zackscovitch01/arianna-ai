@@ -3,6 +3,7 @@ import { LogOut, Menu, MonitorSmartphone } from "lucide-react";
 import Image from "next/image";
 import MenuItem from "./menu-item";
 import DomainMenu from "./domain-menu";
+import { useThemeMode } from "@/hooks/settings/use-settings";
 
 type Props = {
   onExpand(): void;
@@ -18,11 +19,14 @@ type Props = {
     | undefined;
 };
 const MaxMenu = ({ onExpand, current, onSignOut, domains }: Props) => {
+  const { theme } = useThemeMode();
   return (
     <div className="py-3 px-4 flex flex-col h-full">
       <div className="flex justify-between items-center">
         <Image
-          src="/images/logo.png"
+          src={
+            theme === "dark" ? "/images/dark-mode-logo.png" : "/images/logo.png"
+          }
           alt="LOGO"
           sizes="100vw"
           className="animate-fade-in opacity-0 delay-300 fill-mode-forwards"

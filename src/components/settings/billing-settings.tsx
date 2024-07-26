@@ -16,12 +16,12 @@ const BillingSetting = async (props: Props) => {
         />
       </div>
       <div className="lg:col-span-2 flex justify-start lg:justify-center">
-        <Card className="border-dashed bg-cream border-gray-400 w-full cursor-pointer h-[270px] flex justify-center items-center">
+        <Card className="border-dashed bg-cream dark:bg-neutral-950 border-gray-400 w-full cursor-pointer h-[270px] flex justify-center items-center">
           <CardContent className="flex gap-2 items-center">
             <div className="rounded-full border-2 p-1">
-              <Plus className="text-gray-400" />
+              <Plus className="text-gray-400 dark:text-white" />
             </div>
-            <CardDescription className="font-semibold">
+            <CardDescription className="font-semibold dark:text-white">
               Upgrade Plan
             </CardDescription>
           </CardContent>
