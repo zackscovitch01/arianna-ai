@@ -1,11 +1,22 @@
 "use client";
-
 import { Separator } from "@/components/ui/separator";
 import { useSettings } from "@/hooks/settings/use-settings";
+import React from "react";
 import { DomainUpdate } from "./domain-update";
 import CodeSnippet from "./code-snippet";
 import PremiumBadge from "@/icons/premium-badge";
-import EditChatBotIcon from "./edit-chatbot-icon";
+import EditChatbotIcon from "./edit-chatbot-icon";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Loader } from "@/components/loader";
+
+const WelcomeMessage = dynamic(
+  () => import("./greetings-message").then((props) => props.default),
+  {
+    ssr: false,
+  }
+);
 
 type Props = {
   id: string;
@@ -17,14 +28,15 @@ type Props = {
     welcomeMessage: string | null;
   } | null;
 };
-const SettingsForm = ({ id, name, plan, chatBot }: Props) => {
+
+const SettingsForm = ({ id, name, chatBot, plan }: Props) => {
   const {
     register,
-    errors,
-    loading,
     onUpdateSettings,
+    errors,
     onDeleteDomain,
     deleting,
+    loading,
   } = useSettings(id);
   return (
     <form className="flex flex-col gap-8 pb-10" onSubmit={onUpdateSettings}>
@@ -43,20 +55,42 @@ const SettingsForm = ({ id, name, plan, chatBot }: Props) => {
           </div>
         </div>
         <Separator orientation="horizontal" />
-        <div className="grid grid-cols-2">
-          <div className="col-span-1 flex flex-col gap-5">
-            <EditChatBotIcon
+        <div className="grid md:grid-cols-2">
+          <div className="col-span-1 flex flex-col gap-5 order-last md:order-first">
+            <EditChatbotIcon
               chatBot={chatBot}
               register={register}
               errors={errors}
             />
-            {/* <WelcomeMessage
+            <WelcomeMessage
               message={chatBot?.welcomeMessage!}
               register={register}
               errors={errors}
-            /> */}
+            />
+          </div>
+          <div className="col-span-1 relative">
+            <Image
+              src="/images/bot-ui.png"
+              className="sticky top-0"
+              alt="bot-ui"
+              width={490}
+              height={730}
+            />
           </div>
         </div>
+      </div>
+      <div className="flex gap-5 justify-end">
+        <Button
+          onClick={onDeleteDomain}
+          variant="destructive"
+          type="button"
+          className="px-10 h-[50px]"
+        >
+          <Loader loading={deleting}>Delete Domain</Loader>
+        </Button>
+        <Button type="submit" className="w-[100px] h-[50px]">
+          <Loader loading={loading}>Save</Loader>
+        </Button>
       </div>
     </form>
   );
