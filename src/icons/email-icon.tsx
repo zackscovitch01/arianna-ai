@@ -14,14 +14,14 @@ const EmailIcon = () => {
         stroke="#636363"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9"
         stroke="#636363"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

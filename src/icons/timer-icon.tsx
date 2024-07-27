@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const TimerIcon = (props: Props) => {
   return (
@@ -16,17 +16,17 @@ const TimerIcon = (props: Props) => {
         stroke="#636363"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
       <path
         d="M13.7584 12.65L11.1751 11.1084C10.7251 10.8417 10.3584 10.2 10.3584 9.67503V6.25836"
         stroke="#636363"
         stroke-width="1.5"
         stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </svg>
-  )
-}
+  );
+};
 
-export default TimerIcon
+export default TimerIcon;
