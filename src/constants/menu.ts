@@ -60,15 +60,15 @@ export const TABS_MENU: TABS_MENU_PROPS[] = [
   },
   {
     label: "all",
-    icon: EmailIcon(),
+    icon: ChatIcon(),
   },
   {
     label: "expired",
-    icon: EmailIcon(),
+    icon: TimerIcon(),
   },
   {
     label: "starred",
-    icon: EmailIcon(),
+    icon: StarIcon(),
   },
 ];
 
