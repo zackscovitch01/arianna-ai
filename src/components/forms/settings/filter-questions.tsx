@@ -6,35 +6,36 @@ import {
   CardDescription,
   CardTitle,
 } from "@/components/ui/card";
-import { useHelpDesk } from "@/hooks/settings/use-settings";
-import { Form } from "react-hook-form";
+import { useFilterQuestions } from "@/hooks/settings/use-settings";
 import FormGenerator from "../form-generator";
 import { Button } from "@/components/ui/button";
 import { Loader } from "@/components/loader";
-import Accordion from "@/components/accordion";
 
 type Props = {
   id: string;
 };
-const HelpDesk = ({ id }: Props) => {
-  const { register, errors, loading, onSubmitQuestion, isQuestions } =
-    useHelpDesk(id);
+const FilterQuestions = ({ id }: Props) => {
+  const { register, errors, loading, onAddFilterQuestions, isQuestions } =
+    useFilterQuestions(id);
   return (
     <Card className="w-full grid grid-cols-1 lg:grid-cols-2">
       <CardContent className="p-6 border-r-[1px]">
         <CardTitle>Help Desk</CardTitle>
-        <form onSubmit={onSubmitQuestion} className="flex flex-col gap-6 mt-10">
+        <form
+          onSubmit={onAddFilterQuestions}
+          className="flex flex-col gap-6 mt-10"
+        >
           <div className="flex flex-col gap-3">
             <Section
               label="Question"
-              message="Add a question that you believe is frequently asked"
+              message="Add a question that you want your chatbot to ask"
             />
             <FormGenerator
               inputType="input"
               register={register}
-              name="question"
               errors={errors}
-              form="help-desk-form"
+              form="filter-questions-form"
+              name="question"
               placeholder="Type your question"
               type="text"
             />
@@ -42,14 +43,14 @@ const HelpDesk = ({ id }: Props) => {
           <div className="flex flex-col gap-3">
             <Section
               label="Answer to question"
-              message="The answer for the question above"
+              message="Add the answer to the question above"
             />
             <FormGenerator
               inputType="textarea"
               register={register}
-              name="answer"
               errors={errors}
-              form="help-desk-form"
+              form="filter-questions-form"
+              name="answer"
               placeholder="Type your answer"
               type="text"
               lines={5}
@@ -67,18 +68,16 @@ const HelpDesk = ({ id }: Props) => {
         <Loader loading={loading}>
           {isQuestions.length ? (
             isQuestions.map((question) => (
-              <Accordion
-                key={question.id}
-                trigger={question.question}
-                content={question.answer}
-              />
+              <p key={question.id} className="font-bold">
+                {question.question}
+              </p>
             ))
           ) : (
-            <CardDescription>No Questions to show</CardDescription>
+            <CardDescription>No Questions</CardDescription>
           )}
         </Loader>
       </CardContent>
     </Card>
   );
 };
-export default HelpDesk;
+export default FilterQuestions;
