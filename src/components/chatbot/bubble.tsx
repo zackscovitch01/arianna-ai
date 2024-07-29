@@ -1,3 +1,4 @@
+import React from "react";
 import { cn, extractUUIDFromString, getMonthName } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { User } from "lucide-react";
@@ -12,6 +13,7 @@ type Props = {
   };
   createdAt?: Date;
 };
+
 const Bubble = ({ message, createdAt }: Props) => {
   let d = new Date();
   const image = extractUUIDFromString(message.content);
