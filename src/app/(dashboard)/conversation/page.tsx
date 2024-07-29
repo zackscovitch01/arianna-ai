@@ -3,6 +3,7 @@ import { onGetAllAccountDomains } from "../settings/page";
 import NavBar from "@/components/navbar";
 import InfoBar from "@/components/infobar";
 import ConversationMenu from "@/components/conversations";
+import Messenger from "@/components/conversations/messenger";
 
 type Props = {};
 const ConversationPage = async (props: Props) => {
@@ -11,10 +12,12 @@ const ConversationPage = async (props: Props) => {
     <div className="w-full h-full flex">
       <ConversationMenu domains={domains?.domains} />
       <Separator orientation="vertical" />
-      <div className="px-5">
-        <InfoBar />
+      <div className="w-full flex flex-col">
+        <div className="px-5">
+          <InfoBar />
+        </div>
+        <Messenger />
       </div>
-      {/* <Messenger /> */}
     </div>
   );
 };
