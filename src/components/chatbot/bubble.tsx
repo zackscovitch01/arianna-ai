@@ -73,7 +73,7 @@ const Bubble = ({ message, createdAt }: Props) => {
             {message.link && (
               <Link
                 className="underline font-bold pl-2"
-                href={message.link}
+                href={message.link.split("]")[0]}
                 target="_blank"
               >
                 Your Link
