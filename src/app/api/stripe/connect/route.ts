@@ -14,7 +14,7 @@ export async function GET() {
     if (!user) return new NextResponse("User not authenticated");
 
     const account = await stripe.accounts.create({
-      country: "US",
+      country: "CA",
       type: "custom",
       business_type: "company",
       capabilities: {
@@ -40,14 +40,14 @@ export async function GET() {
         },
         company: {
           address: {
-            city: "Fairfax",
+            city: "victoria ",
             line1: "123 State St",
-            postal_code: "22031",
-            state: "VA",
+            postal_code: "G2G 2G2",
+            state: "BC",
           },
           tax_id: "000000000",
           name: "The Best Cookie Co",
-          phone: "8888675309",
+          phone: "4186665555",
         },
       });
       if (approve) {
