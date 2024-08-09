@@ -1,20 +1,19 @@
-"use server";
 import { client } from "@/lib/prisma";
 import { currentUser } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET! as string, {
+const stripe = new Stripe(process.env.STRIPE_SECRET!, {
   typescript: true,
-  apiVersion: "2024-06-20",
 });
 
 export async function GET() {
   try {
     const user = await currentUser();
     if (!user) return new NextResponse("User not authenticated");
+
     const account = await stripe.accounts.create({
-      country: "CA",
+      country: "US",
       type: "custom",
       business_type: "company",
       capabilities: {
@@ -31,6 +30,7 @@ export async function GET() {
         ip: "172.18.80.19",
       },
     });
+
     if (account) {
       const approve = await stripe.accounts.update(account.id, {
         business_profile: {
@@ -39,14 +39,14 @@ export async function GET() {
         },
         company: {
           address: {
-            city: "victoria ",
+            city: "Fairfax",
             line1: "123 State St",
-            postal_code: "G2G 2G2",
-            state: "BC",
+            postal_code: "22031",
+            state: "VA",
           },
           tax_id: "000000000",
           name: "The Best Cookie Co",
-          phone: "4186665555",
+          phone: "8888675309",
         },
       });
       if (approve) {
@@ -119,6 +119,7 @@ export async function GET() {
                     stripeId: account.id,
                   },
                 });
+
                 if (saveAccountId) {
                   const accountLink = await stripe.accountLinks.create({
                     account: account.id,
@@ -130,6 +131,7 @@ export async function GET() {
                       fields: "currently_due",
                     },
                   });
+
                   return NextResponse.json({
                     url: accountLink.url,
                   });
