@@ -55,7 +55,7 @@ export const useStripeCustomer = (amount: number, stripeId: string) => {
 
   useEffect(() => {
     onGetCustomerIntent(amount);
-  }, []);
+  }, [amount, onGetCustomerIntent]);
 
   return { stripeSecret, loadForm };
 };

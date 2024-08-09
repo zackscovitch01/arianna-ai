@@ -43,7 +43,5 @@ const RegistrationFormStep = (props: Props) => {
     case 3:
       return <OTPForm onOTP={onOTP} setOTP={setOnOTP} />;
   }
-
-  return <div>RegistrationFormStep</div>;
 };
 export default RegistrationFormStep;

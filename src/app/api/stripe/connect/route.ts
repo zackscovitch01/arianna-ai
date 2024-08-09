@@ -12,7 +12,6 @@ export async function GET() {
   try {
     const user = await currentUser();
     if (!user) return new NextResponse("User not authenticated");
-
     const account = await stripe.accounts.create({
       country: "CA",
       type: "custom",
@@ -31,7 +30,6 @@ export async function GET() {
         ip: "172.18.80.19",
       },
     });
-
     if (account) {
       const approve = await stripe.accounts.update(account.id, {
         business_profile: {
@@ -120,7 +118,6 @@ export async function GET() {
                     stripeId: account.id,
                   },
                 });
-
                 if (saveAccountId) {
                   const accountLink = await stripe.accountLinks.create({
                     account: account.id,
@@ -132,7 +129,6 @@ export async function GET() {
                       fields: "currently_due",
                     },
                   });
-
                   return NextResponse.json({
                     url: accountLink.url,
                   });
