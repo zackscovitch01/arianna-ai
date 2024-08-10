@@ -28,16 +28,16 @@ const CodeSnippet = ({ id }: Props) => {
         }
     ')
     
-    iframe.src = "http://${process.env.WEBSITE_URL}:3000/chatbot"
+    iframe.src = "https://arianna-ai.vercel.app/chatbot"
     iframe.classList.add('chat-frame')
     document.body.appendChild(iframe)
     
     window.addEventListener("message", (e) => {
-        if(e.origin !== "http://${process.env.WEBSITE_URL}") return null
+        if(e.origin !== "https://arianna-ai.vercel.app") return null
         let dimensions = JSON.parse(e.data)
         iframe.width = dimensions.width
         iframe.height = dimensions.height
-        iframe.contentWindow.postMessage("${id}", "http://${process.env.WEBSITE_URL}/")
+        iframe.contentWindow.postMessage("${id}", "https://arianna-ai.vercel.app/")
     })
         `;
 
