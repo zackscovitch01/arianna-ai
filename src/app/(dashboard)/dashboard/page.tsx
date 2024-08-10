@@ -39,7 +39,7 @@ const Page = async (props: Props) => {
           <DashboardCard
             value={products! * clients! || 0}
             sales
-            title="Pipline Value"
+            title="Pipeline Value"
             icon={<DollarSign />}
           />
           <DashboardCard
