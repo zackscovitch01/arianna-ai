@@ -49,7 +49,7 @@ export default function Home() {
           {" you're"} not ready to commit you can get started for free.
         </p>
       </section>
-      <div className="flex justify-center gap-4 flex-wrap mt-6">
+      <div className="flex justify-center gap-4 flex-wrap mt-6 mb-10">
         {pricingCards.map((card) => {
           return (
             <Card
