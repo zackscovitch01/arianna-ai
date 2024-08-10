@@ -36,7 +36,10 @@ export const onCompleteUserRegistration = async (
 
 export const onLoginUser = async () => {
   const user = await currentUser();
-  if (!user) redirectToSignIn();
+  if (!user)
+    redirectToSignIn({
+      returnBackUrl: "http://arianna-ai.vercel.app/auth/sign-in",
+    });
   else {
     try {
       const authenticated = await client.user.findUnique({

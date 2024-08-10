@@ -49,7 +49,10 @@ export default function Home() {
           {" you're"} not ready to commit you can get started for free.
         </p>
       </section>
-      <div className="flex justify-center gap-4 flex-wrap mt-6 mb-10">
+      <div
+        className="flex justify-center gap-4 flex-wrap mt-6 mb-10"
+        id="pricing"
+      >
         {pricingCards.map((card) => {
           return (
             <Card
@@ -85,7 +88,7 @@ export default function Home() {
                   })}
                 </div>
                 <Link
-                  href={`/dashboard?plan=${card.title}`}
+                  href={`/dashboard/auth/sign-up`}
                   className="bg-[#f3d299] border-orange border-2 p-2 w-full text-center font-bold rounded-md"
                 >
                   Get Started
