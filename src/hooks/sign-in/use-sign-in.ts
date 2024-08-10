@@ -32,7 +32,6 @@ export const useSignInForm = () => {
             title: "Success",
             description: "Welcome back!",
           });
-          setLoading(false);
           router.push("/dashboard");
         }
       } catch (error: any) {
